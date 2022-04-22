@@ -12,9 +12,7 @@ export default function Component() {
   useEffect(() => {
     // Do axios call here
     async function axiosPost() {
-      var res = await axios.get(
-        getGlobalState("backendDomain") + "/api/itemListings/viewAllListings"
-      );
+      var res = await axios.get("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/viewAllListings");
       // console.log(JSON.stringify(res.data))
       setItemListings(res.data);
     }
@@ -35,7 +33,6 @@ export default function Component() {
           <br></br>
         </div>
       ))}
-      {/* <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"></img> */}
     </div>
   );
 }

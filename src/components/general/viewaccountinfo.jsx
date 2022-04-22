@@ -25,9 +25,7 @@ export default function Component() {
         }
 
         async function axiosPost() {
-            var res = await axios.get(
-                getGlobalState("backendDomain") + "/api/AccountInfo/getAccountInfo" + user.id
-            );
+            var res = await axios.get("https://bjge6rs3se.execute-api.us-east-1.amazonaws.com/AccountInfo/api/AccountInfo/getAccountInfo?userID=" + user.id);
             setAccountInfo(res.data);
         }
         axiosPost();

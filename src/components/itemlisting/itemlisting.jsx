@@ -23,21 +23,13 @@ export default function Component() {
 
     // Get item details
     async function fetch1() {
-      var res1 = await axios.get(
-          getGlobalState("backendDomain") +
-          "/api/itemListings/viewListingByID?id=" +
-          id
-      );
+      var res1 = await axios.get("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/viewListingByID?id=" + id);
       setItemListing(res1.data);
     }
     fetch1();
 
     async function fetch2() {
-      var res2 = await axios.get(
-          getGlobalState("backendDomain") +
-          "/api/itemListings/getListingImageLinks/" +
-          id
-      );
+      var res2 = await axios.get("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/getListingImageLinks/" + id);
       setImages(res2.data);
     }
     fetch2();
@@ -54,11 +46,7 @@ export default function Component() {
 
   // Function to delete a listing
   async function deleteListing(){
-    await axios.delete(
-        getGlobalState("backendDomain") +
-        "/api/itemListings/deleteItemListing/" +
-        id + "?userID=" + user.id
-    );
+    await axios.delete("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/deleteItemListing/" + id + "?userID=" + user.id);
 
     // Go back to home after delete
     navigate("/");
@@ -80,7 +68,7 @@ export default function Component() {
       cancelURL: domain + "/transactionfail"
     };
 
-    var status = await axios.post(getGlobalState("backendDomain2") + "/api/Transactions/createPayment", bodyParameters);
+    var status = await axios.post("https://i5lunowrqh.execute-api.us-east-1.amazonaws.com/transactions/api/Transactions/createPayment", bodyParameters);
 
     console.log("POST Response: " + JSON.stringify(status))
     console.log("redirect link: " + JSON.stringify(status.data))

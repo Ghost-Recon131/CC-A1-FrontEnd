@@ -77,18 +77,12 @@ export default function Component() {
       setFormData({...formData, itemCondition: itemConditionDropDown});
 
       // Create listing
-      var res1 = await axios.post(
-          getGlobalState("backendDomain") + "/api/itemListings/newItemListing/" + user.id,
-          formData);
+      var res1 = await axios.post("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/newitemlisting/" + user.id, formData);
 
 
       // 2nd Post to upload image to S3
       if(imageFile !== null){
-        var res2 = await axios.post(
-            // addImageToListing/{listing ID}?userId={currentUserID}&filename={original name of the uploaded file}
-            getGlobalState("backendDomain") +
-            "/api/itemListings/addImageToListing/" +
-            res1.data +
+        var res2 = await axios.post("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/addImageToListing/" + res1.data +
             "?userId=" +
             user.id +
             // user.id +

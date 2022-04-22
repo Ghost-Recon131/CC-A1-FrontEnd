@@ -66,16 +66,11 @@ export default function Component() {
         event.preventDefault();
         try {
             // Update Listing
-            var res1 = await axios.put(
-                getGlobalState("backendDomain") + "/api/itemListings/modifyItemListing/" + listingID,
-                formData);
+            var res1 = await axios.put("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/modifyItemListing/" + listingID, formData);
 
             // 2nd Post to upload image to S3
             if(imageFile !== null){
-                var res2 = await axios.post(
-                    // addImageToListing/{listing ID}?userId={currentUserID}&filename={original name of the uploaded file}
-                    getGlobalState("backendDomain") +
-                    "/api/itemListings/addImageToListing/" +
+                var res2 = await axios.post("https://ji1fy3w7p2.execute-api.us-east-1.amazonaws.com/item-listing/api/addImageToListing/" +
                     listingID +
                     "?userId=" +
                     user.id +

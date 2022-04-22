@@ -23,10 +23,7 @@ export default function Component() {
         event.preventDefault();
         console.log(JSON.stringify(formData))
         try {
-            var res = await axios.post(
-                getGlobalState("backendDomain") + "/api/RegisterLogin",
-                formData
-            );
+            var res = await axios.post("https://0xq8werjoh.execute-api.us-east-1.amazonaws.com/live/RegisterLogin", formData);
             console.log(JSON.stringify(res.data));
             if (res.data.error) {
                 setError(res.data.error)

@@ -20,7 +20,7 @@ export default function Component() {
 
         // Do axios call here
         async function axiosGet() {
-            var res = await axios.get(getGlobalState("backendDomain2") + "/api/Transactions/getUserPurchases?userID=" + user.id);
+            var res = await axios.get("https://i5lunowrqh.execute-api.us-east-1.amazonaws.com/transactions/api/Transactions/getUserPurchases?userID=" + user.id);
             setPurchaseHistory(res.data);
             console.log("Transactions: "+ JSON.stringify(res));
         }

@@ -22,7 +22,7 @@ export default function Component() {
         console.log("Gotten paymentId: " + paymentId);
 
         // Post to backend to confirm payment made
-        await axios.put(getGlobalState("backendDomain2") + "/api/Transactions/successPayment?token=" + paymentId);
+        await axios.put("https://i5lunowrqh.execute-api.us-east-1.amazonaws.com/transactions/api/Transactions/successPayment?token=" + paymentId);
 
         navigate("/viewtransactions");
     }, []);

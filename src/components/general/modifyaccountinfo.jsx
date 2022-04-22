@@ -24,10 +24,7 @@ export default function Component() {
         event.preventDefault();
         console.log(JSON.stringify(formData))
         try {
-            var res = await axios.put(
-                getGlobalState("backendDomain") + "/api/AccountInfo/updateAccountInfo?userID=" + userID,
-                formData
-            );
+            var res = await axios.put("https://bjge6rs3se.execute-api.us-east-1.amazonaws.com/AccountInfo/api/AccountInfo/updateaccountinfo" + userID, formData);
             console.log(JSON.stringify(res.data));
             if(res.data.error){
                 setError(res.data.error)

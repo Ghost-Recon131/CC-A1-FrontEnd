@@ -18,7 +18,7 @@ export default function Component() {
         }
 
         const paymentId = queryParams.get("token");
-        await axios.put(getGlobalState("backendDomain2") + "/api/Transactions/cancelPayment?token=" + paymentId);
+        await axios.put("https://i5lunowrqh.execute-api.us-east-1.amazonaws.com/transactions/api/Transactions/cancelPayment?token=" + paymentId);
     }, []);
 
     return (
