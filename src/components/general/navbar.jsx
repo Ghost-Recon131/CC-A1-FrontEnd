@@ -35,6 +35,39 @@ export default function Component() {
         </Link>
       </div>
       <div>
+
+
+
+        <div>
+          {user.username ? (
+              <div className="rounded hover:font-medium hover:text-gray-400 md:mx-2">
+              </div>
+          ) : (
+              <Link
+                  to="/register"
+                  className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
+              >
+                Register
+              </Link>
+          )}
+        </div>
+
+
+        <div>
+          {user.username ? (
+              <div className="rounded hover:font-medium hover:text-gray-400 md:mx-2">
+              </div>
+          ) : (
+              <Link
+                  to="/forgotpassword"
+                  className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
+              >
+                Forgot Password
+              </Link>
+          )}
+        </div>
+
+
         {user.username ? (
           <div className="rounded hover:font-medium hover:text-gray-400 md:mx-2">
             <select
@@ -56,36 +89,6 @@ export default function Component() {
           >
             Sign in
           </Link>
-        )}
-      </div>
-
-
-      <div>
-        {user.username ? (
-            <div className="rounded hover:font-medium hover:text-gray-400 md:mx-2">
-            </div>
-        ) : (
-            <Link
-                to="/register"
-                className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
-            >
-              Register
-            </Link>
-        )}
-      </div>
-
-
-      <div>
-        {user.username ? (
-            <div className="rounded hover:font-medium hover:text-gray-400 md:mx-2">
-            </div>
-        ) : (
-            <Link
-                to="/forgotpassword"
-                className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
-            >
-              Forgot Password
-            </Link>
         )}
       </div>
 
