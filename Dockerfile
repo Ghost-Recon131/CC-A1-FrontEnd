@@ -4,16 +4,17 @@ FROM node:17.9.0-alpine
 # set working direction
 WORKDIR /frontend
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH="./node_modules/.bin:$PATH"
+# Install app dependencies
+COPY package*.json ./
 
-# install application dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm i
+RUN npm install
 
-# add app
+# Bundle app source
 COPY . ./
+RUN npm run build
 
-# start app
-CMD ["npm", "start"]
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/web
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD [ "nginx", "-g", "daemon off;" ]
