@@ -8,6 +8,6 @@ Backend at: https://github.com/Ghost-Recon131/CC-A1
 
 Repo's are split since frontend uses AWS CodePipeline to automate deployment to Elastic Beanstalk.
 
-Frontend Endpoint (via Route 53): http://a1-reactfrontend.s3843790-cc.com:3000/
-
 Front Endpoint (via Route 53 + ELB with SSL): https://reactfrontend.s3843790-cc.com/
+
+Frontend Endpoint (via CloudFront and the above): https://d2f2bxzwvgo0ej.cloudfront.net/
